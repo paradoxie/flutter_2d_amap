@@ -212,6 +212,7 @@
             request.requireExtension    = YES;
             request.offset              = 50;
             request.keywords            = [call arguments][@"keyWord"];
+            request.cityCode            = [call arguments][@"cityCode"];
             [self.search AMapPOIKeywordsSearch:request];
         }
     } else if ([[call method] isEqualToString:@"move"]) {
