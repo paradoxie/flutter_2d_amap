@@ -212,7 +212,7 @@
             request.requireExtension    = YES;
             request.offset              = 50;
             request.keywords            = [call arguments][@"keyWord"];
-            request.city            = [call arguments][@"cityCode"];
+            request.city                = @"西安";
             [self.search AMapPOIKeywordsSearch:request];
         }
     } else if ([[call method] isEqualToString:@"move"]) {
