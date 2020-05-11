@@ -59,6 +59,7 @@ public class AMap2DView implements PlatformView, MethodChannel.MethodCallHandler
     private Runnable postMessageRunnable;
     private final Context context;
     private String keyWord = "";
+    private String cityCode = "";
     private boolean isPoiSearch;
     private static final String IS_POI_SEARCH = "isPoiSearch";
     
@@ -124,6 +125,7 @@ public class AMap2DView implements PlatformView, MethodChannel.MethodCallHandler
         switch(method) {
             case "search":
                 keyWord = (String) request.get("keyWord");
+                cityCode = (String) request.get("cityCode");
                 search();
                 break;
             case "move":
@@ -184,7 +186,7 @@ public class AMap2DView implements PlatformView, MethodChannel.MethodCallHandler
         if (!isPoiSearch) {
             return;
         }
-        query = new PoiSearch.Query(keyWord, SEARCH_CONTENT, "");
+        query = new PoiSearch.Query(keyWord, SEARCH_CONTENT, cityCode);
         // 设置每页最多返回多少条poiitem
         query.setPageSize(50);
         query.setPageNum(0);

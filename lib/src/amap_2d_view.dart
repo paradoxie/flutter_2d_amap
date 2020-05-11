@@ -88,9 +88,10 @@ class AMap2DController{
     return new Future.value("");
   }
 
-  Future<void> search(String keyWord) async {
+  Future<void> search(String keyWord,{String cityCode}) async {
     return await _channel.invokeMethod('search', <String, dynamic>{
       'keyWord': keyWord,
+      'cityCode': cityCode,
     });
   }
 

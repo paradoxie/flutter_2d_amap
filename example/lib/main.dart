@@ -24,6 +24,9 @@ class _MyAppState extends State<MyApp> {
       home: Scaffold(
         appBar: AppBar(
           title: const Text('flutter_2d_amap'),
+          actions: <Widget>[InkWell(child: Text("搜索"),onTap: (){
+            _aMap2DController.search("中兴",cityCode: "029");
+          },)],
         ),
         body: SafeArea(
           child: Column(
